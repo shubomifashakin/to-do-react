@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  --yellow-color: #fc3;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+.all-inactive {
+  > form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    > .input-group {
+      border-color: var(--yellow-color) !important;
+    }
+  }
+
+  .added-notes {
+    border-left-color: var(--yellow-color) !important;
+    border-right-color: var(--yellow-color) !important;
+
+    > * {
+      border-color: var(--yellow-color) !important;
+    }
+  }
+
+  > footer {
+    border-color: var(--yellow-color) !important;
+  }
+}
+.container {
+  width: 600px;
+
+  .header {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  > form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &:hover {
+      border-color: var(--yellow-color);
+
+      ~ * {
+        border-color: var(--yellow-color);
+
+        > * {
+          border-color: var(--yellow-color) !important;
+        }
+      }
+    }
+
+    > .input-group {
+      border: solid 1px #5e5c5c;
+      padding: 0.5rem 1rem;
+      display: flex;
+      width: 100%;
+      transition: all 0.5s;
+
+      &:has(> input:focus) {
+        border-color: var(--yellow-color);
+
+        > input::placeholder {
+          color: var(--yellow-color);
+        }
+      }
+
+      &:hover {
+        border-color: var(--yellow-color);
+
+        > input::placeholder {
+          color: var(--yellow-color);
+        }
+      }
+
+      > input {
+        border: none;
+        background: none;
+        outline: none;
+        color: #fff;
+        margin-right: 0.5rem;
+        flex-basis: 85%;
+        padding: 0.5rem 0;
+        justify-content: space-between;
+
+        &::placeholder {
+          color: #fff;
+          transition: all 0.5s;
+        }
+      }
+
+      > button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        flex-basis: 15%;
+        text-align: right;
+        color: #fff;
+        transition: color 0.5s;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .added-notes {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-left: solid 1px #5e5c5c;
+    border-right: solid 1px #5e5c5c;
+    transition: all 0.5s;
+
+    .inactive {
+      color: var(--yellow-color) !important;
+    }
+
+    .no-border {
+      border-bottom: none !important;
+    }
+
+    .note {
+      display: flex;
+      font-size: 1rem;
+      text-transform: capitalize;
+      padding: 1rem 0;
+      border-bottom: solid 1px #5e5c5c;
+      color: #fff;
+      transition: all 0.5s;
+
+      &:hover {
+        color: var(--yellow-color);
+      }
+
+      .note-id,
+      .delete-note {
+        flex-basis: 10%;
+        text-align: center;
+        font-size: inherit;
+        transition: all 0.5s;
+      }
+
+      .delete-note {
+        cursor: pointer;
+
+        &:hover {
+          color: var(--yellow-color);
+        }
+      }
+
+      .note-text {
+        flex-basis: 80%;
+        font-size: inherit;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  > footer {
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: solid 1px #5e5c5c;
+    border-left: solid 1px #5e5c5c;
+    border-right: solid 1px #5e5c5c;
+    transition: all 0.5s;
+    color: #fff;
+  }
+}
